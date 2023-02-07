@@ -37,19 +37,37 @@ int main()
     
     for(int i =0; i< num; ++i) {
         std::cin >> com;
-        if(com == "push")
+        if(com == "push_back")
         {
             std::cin >> inum;
             my_vec.push_back(inum);
         }
+        if(com == "push_front")
+        {
+            std::vector<int> temp;
+            temp = my_vec;
+            std::cin >> inum;
+            my_vec.clear();
+            my_vec.push_back(inum);
+            for(int i=0; i<temp.size(); ++i) {
+                my_vec.push_back(temp[i]);
+            }
+        }
         if (com == "top") {
             std::cout << mtop(my_vec) << "\n";
         }
-        if( com == "pop") {
+        if( com == "pop_front") {
             int temp = mfront(my_vec);
             std::cout << temp << "\n";
             if( temp != -1 )            
                 my_vec.erase(my_vec.begin()+0);
+        }
+        if(com == "pop_back")
+        {
+            int temp = mtop(my_vec);
+            std::cout << temp << "\n";
+            if( temp != -1 )            
+                my_vec.pop_back();
         }
         if( com == "size") {
             std::cout << my_vec.size() << "\n";
