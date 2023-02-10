@@ -18,7 +18,7 @@
 #include <numeric>
 #include <algorithm>
 #include <map>
-// #include <math>
+#include <cmath>
 
 void print_map(std::map<int, int>& m) {
     for (std::map<int, int>::iterator itr = m.begin(); itr != m.end(); ++itr) {
@@ -67,10 +67,10 @@ int main() {
     // print_map(imap);
     // std::cout << "a :" << a << std::endl;
     std::vector<std::pair<int,int> > iivec(imap.rbegin(),imap.rend());
-    int ttemp = iivec[0].second;
     int c;
     // std::cout << "---s----" << std::endl;
     sort(iivec.begin(),iivec.end(),sscom);
+    int ttemp = iivec[0].second;
     // for(int i =0; i< iivec.size(); ++i) {
     //     std::cout << iivec[i].first << " " << iivec[i].second << "|";
     // }
@@ -80,11 +80,13 @@ int main() {
     else { 
         if (ttemp == iivec[1].second)
             c = iivec[1].first;
+        else
+            c = iivec[0].first;
     }
     std::cout << a << "\n";
     std::cout << b << "\n";
     std::cout << c << "\n";
-    std::cout << d ;
+    std::cout << d << "\n";
     
     // sort(imap.begin(), imap.end(),sscom);
 
