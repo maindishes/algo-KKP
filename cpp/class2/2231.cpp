@@ -5,23 +5,30 @@
 #include <numeric>
 #include <cmath>
 
-
-int spsum(int num){
-    std::string snum;
-    int sum=0;
-    snum = std::to_string(num);
-    for(int i =0; i<snum.length(); ++i)
-    {
-        // std::cout << "(int)snum[i] : " << (int)(snum[i])-48 << std::endl;
-        sum += (int)(snum[i])-48;
+int main() {
+    int inum;
+    std::cin >> inum;
+    int a = inum;
+    int flag = 0;
+    if (inum > 100) {
+        a = inum - 9 * std::to_string(a).length();
+    } else {
+        a = 1;
     }
-    return sum;
-}
-
-
-int main() 
-{
-    int onum;
-    std::cin >> onum;
-    std::cout << tnum << std::endl;
+    for (int i = a; i < inum; i++) {
+        std::string s = std::to_string(i);
+        int temp = 0;
+        for (int k = 0; k < s.length(); k++) {
+            temp += s[k] - '0';
+        }
+        if (temp + i == inum) {
+            std::cout << i << std::endl;
+            flag = 1;
+            break;
+        }
+    }
+    if (flag != 1) {
+        std::cout << 0 << std::endl;
+    }
+    return 0;
 }
