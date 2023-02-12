@@ -3,12 +3,12 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
 
 int row, col;
-string str1 = "WBWBWBWB", str2 = "BWBWBWBW";
+std::string str1 = "WBWBWBWB";
+std::string str2 = "BWBWBWBW";
 
-int diff(vector<string> temp_list) {
+int diff(std::vector<string> temp_list) {
     int cnt = 0;
     for (int i = 0; i < temp_list.size(); i++) {
         if ((i + 1) % 2 != 0) {
@@ -29,7 +29,7 @@ int diff(vector<string> temp_list) {
     return cnt;
 }
 
-int diff2(vector<string> temp_list) {
+int diff2(std::vector<string> temp_list) {
     int cnt = 0;
     for (int i = 0; i < temp_list.size(); i++) {
         if ((i + 1) % 2 != 0) {
@@ -51,28 +51,28 @@ int diff2(vector<string> temp_list) {
 }
 
 int main() {
-    cin >> row >> col;
-    vector<string> arr;
+    std::cin >> row >> col;
+    std::vector<std::string> arr;
     for (int i = 0; i < row; i++) {
-        string tstr;
-        cin >> tstr;
+        std::string tstr;
+        std::cin >> tstr;
         arr.push_back(tstr);
     }
 
-    vector<vector<string>> temp_arr2;
+    std::vector<std::vector<std::string>> temp_arr2;
     for (int k = 0; k <= row - 8; k++) {
-        vector<string> temp_arr;
+        std::vector<std::string> temp_arr;
         for (int i = k; i < 8 + k; i++) {
             temp_arr.push_back(arr[i]);
         }
         temp_arr2.push_back(temp_arr);
     }
 
-    vector<int> an_list;
+    std::vector<int> an_list;
     for (int k = 0; k <= row - 8; k++) {
-        vector<string> arr = temp_arr2[k];
+        std::vector<std::string> arr = temp_arr2[k];
         for (int a = 0; a <= col - 8; a++) {
-            vector<string> temp_list;
+            std::vector<std::string> temp_list;
             for (int i = 0; i < 8; i++) {
                 string temp = arr[i].substr(a, 8);
                 temp_list.push_back(temp);
