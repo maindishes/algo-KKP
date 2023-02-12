@@ -42,7 +42,10 @@ int diff(std::vector<std::string> s_list,std::string wb, std::string bw)
     }
     return res;
 }
-
+int diff1(std::vector<std::string> &temp_list) {
+    int cnt = 0;
+    for(int i =0; i<temp_list.size();)
+}
 int main()
 {
     int a,b;
