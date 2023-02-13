@@ -2,6 +2,7 @@
 #include <vector>
 #include <iostream>
 #include <set>
+#include <algorithm>
 // #include <pair>
 
 // int sol(std::deque<std::pair<int,int> > &iq) {
@@ -30,12 +31,29 @@ int main() {
         // for (auto k : iset) {
         //     std::cout << k << std::endl;
         // }
+        std::deque<std::pair<int, int> > oiq(iq.begin(),iq.end());
         sort(iq.begin(),iq.end(),std::greater<std::pair<int,int> >());
-        for(int k=0;k<iq.size()-1; ++k) {
-            std::cout << iq[k].first << " : " << iq[k].second << std::endl;
-            if(iq[k].second == b) {
-                std::cout << k << std::endl;
+        
+        std::pair<int, int> temp;
+        int count=0;
+        while(oiq.size() != 0) {
+            if(oiq.front().first != iq.front().first) {
+                oiq.push_back(oiq.front());
+                oiq.pop_front();
+            }
+            else if(oiq.front().first == iq.front().first) {
+                ++count;
+                if(oiq.front().second == b) {
+                    oiq.pop_front();
+                    iq.pop_front();
+                    break;
+                }
+                else if(oiq.front().second != b) {
+                    oiq.pop_front();
+                    iq.pop_front();
+                }
             }
         }
+        std::cout << count << std::endl;
     }
 }
