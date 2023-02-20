@@ -15,28 +15,53 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+// void DFS(std::vector<std::vector<int> > &grap, std::vector<bool> &visit, int start)
+// {
+//     std::stack<int> Q;
+//     Q.push(start);
+//     // visit[start] = true;
+//     while(!Q.empty())
+//     {
+//         int cur = Q.top();
+//         Q.pop();
+//         std::cout << cur << " ";
+//         for(int i =0; i< grap[cur].size(); ++i)
+//         {
+//             int next= grap[cur][i];
+//             if(visit[next] == false)
+//             {
+//                 Q.push(next);
+//                 visit[next] = true;
+//             }
+//         }
+//     }
+//     std::cout << "\n";
+// }
 void DFS(std::vector<std::vector<int> > &grap, std::vector<bool> &visit, int start)
 {
-    std::stack<int> Q;
-    Q.push(start);
-    // visit[start] = true;
-    while(!Q.empty())
+    std::stack<int> S;
+    S.push(start);
+    while(!S.empty())
     {
-        int cur = Q.top();
-        Q.pop();
+        int cur = S.top();
+        S.pop();
         std::cout << cur << " ";
-        for(int i =0; i< grap[cur].size(); ++i)
+        for(int i = 0; i <grap[cur].size(); ++i)
         {
             int next= grap[cur][i];
             if(visit[next] == false)
             {
-                Q.push(next);
+                S.push(next);
                 visit[next] = true;
             }
         }
     }
     std::cout << "\n";
 }
+
+
+
+
 void BFS(std::vector<std::vector<int> > &grap, std::vector<bool> &visit, int start)
 {
     std::queue<int> Q;
@@ -72,9 +97,9 @@ int main()
         grap[v1].push_back(v2);
         grap[v2].push_back(v1);
     }
-    for(int i =0; i< n; ++i) {
-        sort(grap[i].begin(), grap[i].end());
-    }
+    // for(int i =1; i< n+1; ++i) {
+    //     sort(grap[i].begin(), grap[i].end());
+    // }
     std::vector<bool> dfs_visit(n+1);
     dfs_visit[start] = true;
     DFS(grap,dfs_visit,start);
