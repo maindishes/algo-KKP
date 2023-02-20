@@ -1,8 +1,6 @@
 # algo-KKP
 
-- class 3 KKP
-
-[백준 sloved 문제 class 3](https://solved.ac/en/class/3)
+- class 3 [백준 sloved 문제 class 3](https://solved.ac/en/class/3)
 
 
 
