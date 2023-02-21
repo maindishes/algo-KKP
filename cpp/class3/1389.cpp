@@ -28,7 +28,7 @@ int main() {
     }
     std::vector<int> temp;
 
-    for (int id = 1; id<n+1; ++id) {
+    for (int id = 1; id<=n; ++id) {
         std::queue<int> Q;
         std::vector<bool> visit(n+1);
         std::cout << id << std::endl;
