@@ -13,6 +13,7 @@
 #include <iostream>
 #include <queue>
 #include <vector>
+#include <algorithm>
 
 
 int main() {
@@ -27,41 +28,50 @@ int main() {
         table[v2].push_back(v1);
     }
     std::vector<int> temp;
-
+    std::vector<std::pair<int,int> > an;
+    int min=21323837;
     for (int id = 1; id<=n; ++id) {
         std::queue<int> Q;
-        std::vector<bool> visit(n+1);
-        std::cout << id << std::endl;
+        std::vector<int> visit(n+1,0);
+        // std::cout << id << std::endl;
         Q.push(id);
-        visit[id] = true;
-        int min=21323837;
+        visit[id] = 0;
         int count=0;
         while(!Q.empty()) {
             int cur = Q.front();
             Q.pop();
-            int cnt = 0;
-            std::cout << "cur : " << cur << std::endl;
+            // int cnt = 0;
+            // std::cout << "cur : " << cur << std::endl;
             for(int i=0; i< table[cur].size(); ++i) {
-                int next= table[cur][i];
-                if(visit[next] == false)
-                {
-                    ++cnt;
-                    Q.push(next);
-                    std::cout << "check : " << next << std::endl;
-                    visit[next] = true;
-                }
+                int next = table[cur][i];
+                if(visit[next] != 0)
+                    continue;
+                // ++cnt;
+                Q.push(next);
+                // std::cout << "check : " << next << std::endl;
+                visit[next] = visit[cur] + 1;
             }
             // std::cout << "cnt : " << cnt << "\n" << "count : " << count << "\n";
-            temp.push_back(cnt);
+            // temp.push_back(cnt);
         }
         // min = std::min(count,min);
         // std::cout << min << std::endl;
-        std::cout << "temp : ";
-        for(int i=0; i<temp.size(); ++i)
+        // std::cout << "temp : ";
+        std::pair<int,int> temp_sum;
+        for(int i=1; i<visit.size(); ++i)
         {
-            std::cout << temp[i] << " ";
+            if (i == id)
+            {
+                temp_sum.second = i;
+                continue;
+            }
+            // std::cout << visit[i] << " ";
+            temp_sum.first += visit[i];
         }
-        std::cout << std::endl; 
-        temp.clear();
+        an.push_back(temp_sum);
+        // std::cout << std::endl; 
+        visit.clear();
     }
+    sort(an.begin(),an.end());
+    std::cout << an[0].second << std::endl;
 }
