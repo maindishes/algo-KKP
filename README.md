@@ -5,7 +5,7 @@
 
 
 # class 3  
-(2 per day). 
+(2 per day). -> 3 per day since 2023 3 6 
 O : 내 풀이.    
 X : 틀림.   
 V : 질문게시판 참고.    
