@@ -38,7 +38,7 @@ C : 풀이 참고한 문제.
 |IOIOI|5525|||
 |Cain Calendar|6064|||
 |토마토|7569|||
-|토마토|7576|||
+|토마토|7576|[C](https://blog.encrypted.gg/941)|C|
 |Dual Priority Queue|7662|||
 |DSLR|9019|||
 |Adding 1s, 2s, and 3s|9095|||
