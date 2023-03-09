@@ -16,27 +16,37 @@
 #include <vector>
 #include <algorithm>
 
-void DFS(std::vector<std::vector<int> > &grap, std::vector<bool> &visit, int start)
-{
-    std::stack<int> S;
-    S.push(start);
-    while(!S.empty())
-    {
-        int cur = S.top();
-        S.pop();
-        std::cout << cur << " ";
-        for(int i =0; i<grap[cur].size(); ++i)
-        {
-            int next= grap[cur][i];
-            // std::cout << "next : " << next << std::endl;
-            if(visit[next] == false)
-            {
-                S.push(next);
-                visit[next] = true;
-            }
-        }
-    }
-    std::cout << "\n";
+// void DFS(std::vector<std::vector<int> > &grap, std::vector<bool> &visit, int start)
+// {
+//     std::stack<int> S;
+//     S.push(start);
+//     while(!S.empty())
+//     {
+//         int cur = S.top();
+//         S.pop();
+//         std::cout << cur << " ";
+//         for(int i =0; i<grap[cur].size(); ++i)
+//         {
+//             int next= grap[cur][i];
+//             // std::cout << "next : " << next << std::endl;
+//             if(visit[next] == false)
+//             {
+//                 S.push(next);
+//                 visit[next] = true;
+//             }
+//         }
+//     }
+//     std::cout << "\n";
+// }
+void DFS(std::vector<std::vector<int>>& graph, std::vector<bool>& checked, int start) {
+	std::cout << start << ' '; // 방문 출력
+	for (int i = 0; i < graph[start].size(); ++i) {
+		int next = graph[start][i];
+		if (!checked[next]) { // 방문 안한 정점이면 고고
+			checked[next] = true;
+			DFS(graph, checked, next);
+		}
+	}
 }
 
 
