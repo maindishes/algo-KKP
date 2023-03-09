@@ -37,14 +37,14 @@ C : 풀이 참고한 문제.
 |Integer Lists|5430|||
 |IOIOI|5525|||
 |Cain Calendar|6064|||
-|토마토|7569|||
+|토마토|7569||V:좌표 처리부분 참고|
 |토마토|7576|[C:바킹독 풀이](https://blog.encrypted.gg/941)|O|
 |Dual Priority Queue|7662|||
 |DSLR|9019|||
 |Adding 1s, 2s, and 3s|9095|||
 |Incognito|9375||O|
 |Padovan Sequence|9461|||
-|Cow Art|10026|||
+|Cow Art|10026||O|
 |동전 0|11047|||
 |최대 힙|11279||O|
 |절댓값 힙|11286|ChatGPT(just custom priority que)|O|
