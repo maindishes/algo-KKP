@@ -39,7 +39,7 @@ C : 풀이 참고한 문제.
 |Cain Calendar|6064|||
 |토마토|7569||V:좌표 처리부분 참고|
 |토마토|7576|[C:바킹독 풀이](https://blog.encrypted.gg/941)|O|
-|Dual Priority Queue|7662|||
+|Dual Priority Queue|7662|[처음 내아이디어와 같은 풀이(근데 나는 싱크해주는 코드를 구현 못함)](https://velog.io/@mttw2820/%EB%B0%B1%EC%A4%80-7662.-%EC%9D%B4%EC%A4%91-%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84-%ED%81%90)|V(자료구조 Set 을 쓰라는거 참고|
 |DSLR|9019|||
 |Adding 1s, 2s, and 3s|9095|||
 |Incognito|9375||O|
