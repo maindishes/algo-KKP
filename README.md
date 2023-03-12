@@ -45,7 +45,7 @@ C : 풀이 참고한 문제.
 |Incognito|9375||O|
 |Padovan Sequence|9461|V점화식 참고|O|
 |Cow Art|10026||O|
-|동전 0|11047|||
+|동전 0|11047||O|
 |최대 힙|11279||O|
 |절댓값 힙|11286|ChatGPT(just custom priority que)|O|
 |ATM|11399||O|
