@@ -17,54 +17,27 @@
 #include <iostream>
 #include <algorithm>
 
-int dx[2] = {1,2};
-int main()  {
-    int inum;
-    std::cin >> inum;
-    std::vector<int> ivec;
-    ivec.push_back(0);
-    int temp;
-    std::vector<int> visit(inum+1,0);
-    std::queue<int> Q;
-    int tt = inum;
-    while(tt--)
-    {
-        std::cin >> temp;
-        ivec.push_back(temp);
-    }
-    // sort(ivec.begin(),ivec.end());
-    // std::cout << *(ivec.end()-1) << std::endl;
-    Q.push(0);
-    // for(int idx =0; idx < inum+1; ++idx)
-    // {
-    //     if(visit[idx] == 1)
-    //         continue;
-        // Q.push(idx);
-    
-    int sum = 0;
-    while(!Q.empty())
-    {
-        int cur = Q.front();
-        sum += cur;
-        Q.pop();
-        for(int c = 0;  c<inum+1; ++c)
-        {
-            std::cout<<visit[c] << " ";
-        }
-        std::cout << std::endl;
-        // std::cout << "cur : " << cur << std::endl;
-        if (cur == inum)
-            break;
-        for(int i =0; i<2; ++i)
-        {
-            int next= cur + dx[i];
-            std::cout << "next : " << next << std::endl;
-            if(next > inum)
-                continue;
-            Q.push(next);
-            visit[next] += ivec[cur];
-        }
-    // }
-    }
-    std::cout << "sum : " << sum << std::endl;
+int s[305];
+int n;
+int d[305];
+
+int main(void){
+  std::ios::sync_with_stdio(0);
+  std::cin.tie(0);
+  std::cin >> n;
+  int tot = 0;
+  for(int i = 1; i <= n; i++){
+    std::cin >> s[i];
+    tot += s[i];
+  }
+  if(n <= 2){
+    std::cout << tot;
+    return 0;
+  }
+  d[1] = s[1];
+  d[2] = s[2];
+  d[3] = s[3];
+  for(int i = 4; i <= n-1; i++) 
+    d[i] = std::min(d[i-2],d[i-3])+s[i];
+  std::cout << tot - std::min(d[n-1],d[n-2]);
 }

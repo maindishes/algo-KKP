@@ -7,40 +7,52 @@
 6 7 8
 */
 #include <iostream>
-#include <vector>
+#include <algorithm>
 
-int main()
+bool broken[10]; 
+
+int possible(int c)
 {
-    std::string target_s;
-    std::cin >> target_s;
-    int target = std::stoi(target_s);
-    int inum;
-    std::cin >> inum;
-    int temp;
-    std::vector<int> black;
-    for(int i=0; i<inum; ++i) {
-        std::cin >> temp;
-        black.push_back(temp);
-    }
-    std::vector<int> soso;
-    for (int i =0; i<10;++i) {
-        soso.push_back(i);
-        for(int k = 0; k<inum; ++k) {
-            if(black[k] == i)
-                soso.pop_back();
+	if (c == 0)
+	{
+        if (broken[0]) {
+            return 0;
+        } 
+        else {
+            return 1;
         }
     }
-
-    // for(int i =0; i<soso.size(); ++i) {
-    //     std::cout << soso[i] << " ";
-    // }
-    // std::cout << std::endl;
-
-    for(int i=0; i< target_s.length(); ++i) {
-        // std::cout << target_s[i] << std::endl;
-        if(target_s[i] )
+    int len = 0;
+    while (c > 0)
+    {
+        if (broken[c % 10]) return 0;
+        len += 1;
+        c /= 10;
     }
+    return len;
+}
 
-    
+int main(void) {
+
+	int N, M, temp; 
+    std::cin >> N >> M;
+	for (int i = 0; i < M; ++i) {
+		std::cin >> temp;
+		broken[temp] = true;
+	}
+	int ch = std::max(100 - N, N - 100);
+	if (N != 100)
+	{
+		for (int C = 0; C <= 1000000; ++C)
+		{
+			if (possible(C))
+			{
+				ch = std::min(ch, possible(C) + std::max(N - C, C - N));
+			}
+		}
+	}
+
+	std::cout << ch << "\n";
+
 }
 
